@@ -1,0 +1,8 @@
+helloworld.o: helloworld.asm
+	asm
+
+helloworld.bin: helloworld.o
+	convert
+
+stdout: helloworld.bin
+	Mx86

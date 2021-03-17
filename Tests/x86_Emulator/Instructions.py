@@ -1,0 +1,3 @@
+INS_INT = 0x00
+INS_NOP = 0x01
+INS_MOV = 0x02
