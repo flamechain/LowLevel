@@ -33,6 +33,7 @@
 
 | Summary | Code |
 |-|-|
+| Reg | $01 |
 | Reg, Im16 | $06 |
 | Reg, Im8 | $07 |
 ||
