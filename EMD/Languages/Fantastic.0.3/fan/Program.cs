@@ -4,7 +4,7 @@ using System.Linq;
 using Fantastic.CodeAnalysis;
 
 namespace Fantastic {
-    class Program {
+    internal static class Program {
         static void Main(string[] args) {
             bool showTree = false;
 
@@ -30,12 +30,11 @@ namespace Fantastic {
                 }
 
                 SyntaxTree syntaxTree = SyntaxTree.Parse(line);
-                ConsoleColor color = Console.ForegroundColor;
 
                 if (showTree) {
                     Console.ForegroundColor = ConsoleColor.DarkGray;
                     PrettyPrint(syntaxTree.Root);
-                    Console.ForegroundColor = color;
+                    Console.ResetColor();
                 }
 
                 if (!syntaxTree.Diagnostics.Any()) {
@@ -48,7 +47,7 @@ namespace Fantastic {
                     foreach (string diagnostic in syntaxTree.Diagnostics)
                         Console.WriteLine(diagnostic);
 
-                    Console.ForegroundColor = color;
+                    Console.ResetColor();
                 }
             }
         }

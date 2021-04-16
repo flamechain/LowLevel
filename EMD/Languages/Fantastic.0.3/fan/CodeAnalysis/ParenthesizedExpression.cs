@@ -1,9 +1,10 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Fantastic.CodeAnalysis {
-    sealed class ParenthesizedExpression : ExpressionSyntax {
+    /// <summary>
+    /// Expression for expressions contained in parenthesis
+    /// </summary>
+    public sealed class ParenthesizedExpression : ExpressionSyntax {
         public SyntaxToken LParenToken;
         public ExpressionSyntax Expression;
         public SyntaxToken RParenToken;

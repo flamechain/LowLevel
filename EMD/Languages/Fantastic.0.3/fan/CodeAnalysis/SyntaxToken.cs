@@ -1,9 +1,11 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Fantastic.CodeAnalysis {
-    class SyntaxToken : SyntaxNode {
+    /// <summary>
+    /// Token with attributes for parsing
+    /// </summary>
+    public sealed class SyntaxToken : SyntaxNode {
         public override SyntaxType Type { get; }
         public int Position { get; }
         public string Text { get; }

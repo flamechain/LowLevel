@@ -1,9 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Fantastic.CodeAnalysis {
-    class Evaluator {
+    /// <summary>
+    /// Evaulates parsed SyntaxTree
+    /// </summary>
+    internal sealed class Evaluator {
         private readonly ExpressionSyntax Root;
 
         public Evaluator(ExpressionSyntax root) {
@@ -15,11 +16,8 @@ namespace Fantastic.CodeAnalysis {
         }
 
         private int EvaluateExpression(ExpressionSyntax node) {
-            // Binary Expression
-            // Number Expression
-
-            if (node is NumberExpression n)
-                return (int)n.NumberToken.Value;
+            if (node is LiteralExpression n)
+                return (int)n.LiteralToken.Value;
             else if (node is BinaryExpression b) {
                 int left = EvaluateExpression(b.Left);
                 int right = EvaluateExpression(b.Right);

@@ -1,9 +1,10 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Fantastic.CodeAnalysis {
-    sealed class BinaryExpression : ExpressionSyntax {
+    /// <summary>
+    /// Expression type with an operator and 2 operands
+    /// </summary>
+    public sealed class BinaryExpression : ExpressionSyntax {
         public ExpressionSyntax Left { get; }
         public SyntaxNode Operator { get; }
         public ExpressionSyntax Right { get; }

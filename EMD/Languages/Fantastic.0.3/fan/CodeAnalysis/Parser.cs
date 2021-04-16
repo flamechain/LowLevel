@@ -1,9 +1,10 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Fantastic.CodeAnalysis {
-    class Parser {
+    /// <summary>
+    /// Takes lexed tokens and parses into SyntaxTree
+    /// </summary>
+    internal sealed class Parser {
         private readonly SyntaxToken[] Tokens;
         private int Position;
         private List<string> Diagnostics = new List<string>();
@@ -17,7 +18,7 @@ namespace Fantastic.CodeAnalysis {
             SyntaxToken token;
 
             do {
-                token = lexer.NextToken();
+                token = lexer.Lex();
 
                 if (token.Type != SyntaxType.WhitespaceToken && token.Type != SyntaxType.InvalidToken)
                     tokens.Add(token);
@@ -43,7 +44,7 @@ namespace Fantastic.CodeAnalysis {
             return Tokens[index];
         }
 
-        private SyntaxToken Match(SyntaxType type) {
+        private SyntaxToken MatchToken(SyntaxType type) {
             if (Current.Type == type)
                 return NextToken();
 
@@ -52,49 +53,38 @@ namespace Fantastic.CodeAnalysis {
         }
 
         public SyntaxTree Parse() {
-            ExpressionSyntax expression = ParseTerm();
-            SyntaxToken eofToken = Match(SyntaxType.EOFToken);
+            ExpressionSyntax expression = ParseExpression();
+            SyntaxToken eofToken = MatchToken(SyntaxType.EOFToken);
             return new SyntaxTree(Diagnostics, expression, eofToken);
         }
 
-        private ExpressionSyntax ParseFactor() {
+        private ExpressionSyntax ParseExpression(int parentPrecedence = 0) {
             ExpressionSyntax left = ParsePrimaryExpression();
 
-            while (Current.Type == SyntaxType.StarToken || Current.Type == SyntaxType.ForeSlashToken) {
+            while (true) {
+                int precedence = Current.Type.GetBinaryOperatorPrecedence();
+
+                if (precedence == 0 || precedence <= parentPrecedence)
+                    break;
+
                 SyntaxToken operatorToken = NextToken();
-                ExpressionSyntax right = ParsePrimaryExpression();
+                ExpressionSyntax right = ParseExpression(precedence);
                 left = new BinaryExpression(left, operatorToken, right);
             }
 
             return left;
-        }
-
-        private ExpressionSyntax ParseTerm() {
-            ExpressionSyntax left = ParseFactor();
-
-            while (Current.Type == SyntaxType.PlusToken || Current.Type == SyntaxType.MinusToken) {
-                SyntaxToken operatorToken = NextToken();
-                ExpressionSyntax right = ParseFactor();
-                left = new BinaryExpression(left, operatorToken, right);
-            }
-
-            return left;
-        }
-
-        private ExpressionSyntax ParseExpression() {
-            return ParseTerm();
         }
 
         private ExpressionSyntax ParsePrimaryExpression() {
             if (Current.Type == SyntaxType.LParenToken) {
                 SyntaxToken left = NextToken();
                 ExpressionSyntax expression = ParseExpression();
-                SyntaxToken right = Match(SyntaxType.RParenToken);
+                SyntaxToken right = MatchToken(SyntaxType.RParenToken);
                 return new ParenthesizedExpression(left, expression, right);
             }
 
-            SyntaxToken number = Match(SyntaxType.NumberToken);
-            return new NumberExpression(number);
+            SyntaxToken number = MatchToken(SyntaxType.NumberToken);
+            return new LiteralExpression(number);
         }
     }
 }

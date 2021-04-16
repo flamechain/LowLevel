@@ -1,9 +1,11 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Fantastic.CodeAnalysis {
-    sealed class SyntaxTree {
+    /// <summary>
+    /// Generates a recursive tree with priorety levels to make an accurate evaluatable expression
+    /// </summary>
+    public sealed class SyntaxTree {
         public IReadOnlyList<string> Diagnostics { get; }
         public ExpressionSyntax Root { get; }
         public SyntaxToken EOFToken { get; }
