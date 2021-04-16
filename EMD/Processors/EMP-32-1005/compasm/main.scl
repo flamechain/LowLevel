@@ -1,0 +1,18 @@
+#include <stdio.scl>
+
+program Main
+    uchar :: a
+    char :: b
+    uint :: d
+    int :: c
+    ushort :: e
+    short :: f
+    ulong :: g
+    long :: h
+
+    int[5] :: i = [1, 2, 3, 4, 5]
+    char[6] :: j = "Hello"
+
+    printf(j)
+
+end program Main

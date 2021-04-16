@@ -1,0 +1,6 @@
+# Code Owners
+
+# Core
+
+**/*.bin        @flamechain
+**/*.py         @flamechain

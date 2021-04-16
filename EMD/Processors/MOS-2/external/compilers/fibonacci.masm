@@ -1,0 +1,17 @@
+SET eax, uint 0
+SET ebx, uint 1
+SET ecx, uint 0
+SET edx, uint 4
+SET eex, uint 2
+exit = CMP edx, eex
+
+.loop
+Jcc exit, .end
+ADD eax, ebx -> ecx
+MOV ebx -> eax
+MOV ecx -> ebx
+INMT eex
+JMP .loop
+
+.end
+HLT

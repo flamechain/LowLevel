@@ -1,0 +1,17 @@
+Global Vars: All caps with underscores    -> GLOBAL_VAR
+Method Vars: Lower camel case             -> methodVar
+Class Vars: Upper camel case              -> ClassVar
+Method Names: Upper camel case            -> MethodName
+Class Names: Upper camel case single word -> Classname
+:: Static Typing
+:: Example Docstrings on public methods
+External Reference: /
+    For constants -> ` from <module_name> import * `
+    For objects   -> ` from <module_name> import {<object names>} `
+    Other         -> ` import <module_name> `
+/
+
+:: Private Conventions
+
+Instructions: Mnemonic const names, 2-6 letters -> ADD
+Regesters: /\

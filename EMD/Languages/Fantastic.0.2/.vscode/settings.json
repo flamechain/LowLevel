@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "mstring.h": "c",
+        "lexer.h": "c"
+    }
+}

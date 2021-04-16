@@ -1,0 +1,14 @@
+OS      MOS_2
+CPU     MBC MCPU-32
+RAM     MBC ROF-16
+EPROM   MBC EOF-4K
+DISK    MBC VM-1K
+
+Max Storage:
+
+RAM: 262 KB
+EPROM: None
+DISK: 65536 Files, None
+
+16 Bit Addresses
+32 Bit Data Width

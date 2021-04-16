@@ -1,0 +1,16 @@
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\bin\Debug\net5.0\fan.exe
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\bin\Debug\net5.0\fan.deps.json
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\bin\Debug\net5.0\fan.runtimeconfig.json
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\bin\Debug\net5.0\fan.runtimeconfig.dev.json
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\bin\Debug\net5.0\fan.dll
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\bin\Debug\net5.0\ref\fan.dll
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\bin\Debug\net5.0\fan.pdb
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\obj\Debug\net5.0\fan.csprojAssemblyReference.cache
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\obj\Debug\net5.0\fan.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\obj\Debug\net5.0\fan.AssemblyInfoInputs.cache
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\obj\Debug\net5.0\fan.AssemblyInfo.cs
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\obj\Debug\net5.0\fan.csproj.CoreCompileInputs.cache
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\obj\Debug\net5.0\fan.dll
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\obj\Debug\net5.0\ref\fan.dll
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\obj\Debug\net5.0\fan.pdb
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\obj\Debug\net5.0\fan.genruntimeconfig.cache
