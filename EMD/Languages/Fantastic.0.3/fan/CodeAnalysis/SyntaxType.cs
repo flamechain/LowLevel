@@ -17,6 +17,7 @@ namespace Fantastic.CodeAnalysis {
         RParenToken,
         // Expressions
         LiteralExpression,
+        UnaryExpression,
         BinaryExpression,
         ParenthesizedExpression,
     }

@@ -59,7 +59,16 @@ namespace Fantastic.CodeAnalysis {
         }
 
         private ExpressionSyntax ParseExpression(int parentPrecedence = 0) {
-            ExpressionSyntax left = ParsePrimaryExpression();
+            ExpressionSyntax left;
+            int unaryPredecence = Current.Type.GetUnaryOperatorPrecedence();
+
+            if (unaryPredecence != 0 && unaryPredecence >= parentPrecedence) {
+                SyntaxToken operatorToken = NextToken();
+                ExpressionSyntax operand = ParseExpression(unaryPredecence);
+                left = new UnaryExpression(operatorToken, operand);
+            } else {
+                left = ParsePrimaryExpression();
+            }
 
             while (true) {
                 int precedence = Current.Type.GetBinaryOperatorPrecedence();

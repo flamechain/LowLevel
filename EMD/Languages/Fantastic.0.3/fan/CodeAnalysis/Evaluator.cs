@@ -18,7 +18,16 @@ namespace Fantastic.CodeAnalysis {
         private int EvaluateExpression(ExpressionSyntax node) {
             if (node is LiteralExpression n)
                 return (int)n.LiteralToken.Value;
-            else if (node is BinaryExpression b) {
+            else if (node is UnaryExpression u) {
+                int operand = EvaluateExpression(u.Operand);
+
+                if (u.Operator.Type == SyntaxType.PlusToken)
+                    return operand;
+                else if (u.Operator.Type == SyntaxType.MinusToken)
+                    return -operand;
+                else
+                    throw new Exception($"Unexpected unary operator {u.Operator.Type}");
+            } else if (node is BinaryExpression b) {
                 int left = EvaluateExpression(b.Left);
                 int right = EvaluateExpression(b.Right);
 
