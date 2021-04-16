@@ -1,6 +1,0 @@
-SET eax, uint 3
-LOOP eax -> .here
-prog = GET eax
-
-
-.here
