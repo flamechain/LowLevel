@@ -12,8 +12,18 @@ int RAM::LoadBin(char filename[]) {
 		return EMU_INVALIDINPUTFILE;
 	}
 
-	OutputDebugStringW((LPCWSTR)fgets(filecontents, filebuffer, fp));
+	fgets(filecontents, filebuffer, fp);
 	fclose(fp);
 
+	for (int i = 0; i < sizeof filecontents; i++) {
+		this->data[i] = filecontents[i];
+	}
+
 	return 0;
+}
+
+void RAM::Reset() {
+	for (int i = 0; i < sizeof this->data; i++) {
+		this->data[i] = 0;
+	}
 }

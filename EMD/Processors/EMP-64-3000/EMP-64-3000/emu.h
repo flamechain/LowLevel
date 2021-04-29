@@ -8,11 +8,6 @@ namespace emu {
 	using Byte = unsigned char;
 	using Word = unsigned short;
 	using DWord = unsigned int;
-	using QWord = unsigned long;
-	using DQWord = unsigned long long;
-	using FSingle = float; // real
-	using FDouble = double;
-	using FExtend = double long;
 
 	const int EMU_NOINPUTFILE = 1;
 	const int EMU_INVALIDINPUTFILE = 2;

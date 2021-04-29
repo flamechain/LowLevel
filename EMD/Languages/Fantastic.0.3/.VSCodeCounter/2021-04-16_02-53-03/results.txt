@@ -1,0 +1,59 @@
+Date : 2021-04-16 02:53:03
+Directory : c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan
+Total : 25 files,  609 codes, 52 comments, 112 blanks, all 773 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| C#         |         16 |        402 |         52 |        108 |        562 |
+| JSON       |          5 |        169 |          0 |          0 |        169 |
+| XML        |          3 |         30 |          0 |          3 |         33 |
+| Properties |          1 |          8 |          0 |          1 |          9 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                             | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                                |         25 |        609 |         52 |        112 |        773 |
+| CodeAnalysis                                                                                                                                     |         13 |        330 |         41 |         84 |        455 |
+| bin                                                                                                                                              |          3 |         40 |          0 |          0 |         40 |
+| bin\Debug                                                                                                                                        |          3 |         40 |          0 |          0 |         40 |
+| bin\Debug\net5.0                                                                                                                                 |          3 |         40 |          0 |          0 |         40 |
+| obj                                                                                                                                              |          7 |        173 |         11 |          7 |        191 |
+| obj\Debug                                                                                                                                        |          3 |         20 |         11 |          7 |         38 |
+| obj\Debug\net5.0                                                                                                                                 |          3 |         20 |         11 |          7 |         38 |
++--------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                                                         | language   | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\BinaryExpression.cs                                | C#         |         19 |          3 |          4 |         26 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\Evaluator.cs                                       | C#         |         40 |          3 |          8 |         51 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\ExpressionSyntax.cs                                | C#         |          3 |          3 |          2 |          8 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\Lexer.cs                                           | C#         |         59 |          3 |         17 |         79 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\LiteralExpression.cs                               | C#         |         13 |          3 |          4 |         20 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\ParenthesizedExpression.cs                         | C#         |         19 |          3 |          4 |         26 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\Parser.cs                                          | C#         |         74 |          3 |         23 |        100 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\SyntaxFacts.cs                                     | C#         |         25 |          3 |          6 |         34 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\SyntaxNode.cs                                      | C#         |          7 |          3 |          2 |         12 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\SyntaxToken.cs                                     | C#         |         19 |          3 |          4 |         26 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\SyntaxTree.cs                                      | C#         |         18 |          3 |          4 |         25 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\SyntaxType.cs                                      | C#         |         18 |          5 |          2 |         25 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\UnaryExpression.cs                                 | C#         |         16 |          3 |          4 |         23 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\Program.cs                                                      | C#         |         60 |          0 |         18 |         78 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\bin\Debug\net5.0\fan.deps.json                                  | JSON       |         23 |          0 |          0 |         23 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\bin\Debug\net5.0\fan.runtimeconfig.dev.json                     | JSON       |          8 |          0 |          0 |          8 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\bin\Debug\net5.0\fan.runtimeconfig.json                         | JSON       |          9 |          0 |          0 |          9 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\fan.csproj                                                      | XML        |          6 |          0 |          3 |          9 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\obj\Debug\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.cs | C#         |          3 |          1 |          1 |          5 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\obj\Debug\net5.0\fan.AssemblyInfo.cs                            | C#         |          9 |         10 |          5 |         24 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\obj\Debug\net5.0\fan.GeneratedMSBuildEditorConfig.editorconfig  | Properties |          8 |          0 |          1 |          9 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\obj\fan.csproj.nuget.dgspec.json                                | JSON       |         62 |          0 |          0 |         62 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\obj\fan.csproj.nuget.g.props                                    | XML        |         18 |          0 |          0 |         18 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\obj\fan.csproj.nuget.g.targets                                  | XML        |          6 |          0 |          0 |          6 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\obj\project.assets.json                                         | JSON       |         67 |          0 |          0 |         67 |
+| Total                                                                                                                                            |            |        609 |         52 |        112 |        773 |
++--------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

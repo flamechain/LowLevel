@@ -1,0 +1,195 @@
+WARNING:
+These are vague notes made throughout the design and construction of the JMC-8.
+Look in "JMC-8 Documentation.md" for a better description of the minicomputer and its feature set.
+
+Notes on control unit circuitry:
+For one byte instructions:
+	addr_pc, dc_in, mem_out
+	pc_inc, microcode...
+Two byte:
+	addr_pc, dc_in, mem_out
+	pc_inc, addr_pc, dc_in, mem_out
+	pc_inc, microcode...
+Three byte:
+	addr_pc, dc_in, mem_out
+	pc_inc, addr_pc, dc_in, mem_out
+	pc_inc, addr_pc, dc_in, mem_out
+	pc_inc, microcode...
+
+One cycle per instruction byte
+
+Control unit signals
+ACTUAL MICROCODE CONTAINED IN os/microcode.asm
+
+notes:
+r1_out or r0_out, then reg_out can be assumed
+load_f then f_out, and vice versa
+load_x or load_y, then alu_in assumed
+
+OUTPUTS USED FOR MICROCODE:
+; f_out
+; reg_out
+; alu_in
+addr_imm
+addr_ij
+addr_sp
+mem_in
+mem_out
+r1_out
+r0_out
+load_f
+reg_in
+alu_out
+ir1_out
+ir2_out
+load_x
+load_y
+sp_inc
+sp_dec
+load_pc_ij
+i_in
+j_in
+stop_if_zero
+
+Two kinds of 15-bit microcodes, denoted by top bit
+ucode with MSB=1 (for RW operations):
+r1_out
+r0_out
+reg_in
+ir1_out
+ir2_out
+addr_imm
+addr_ij
+addr_sp
+mem_in
+mem_out
+i_in
+j_in
+
+ucode with MSB=0 (for processing operations):
+r0_out
+r1_out
+reg_in
+ir1_out
+ir2_out
+load_f
+alu_out
+load_x
+load_y
+sp_inc
+sp_dec
+load_pc_ij
+stop_if_zero
+
+OUTPUT:
+addr_imm
+addr_ij
+addr_pc
+addr_sp
+
+mem_in
+mem_out
+
+r1_out
+r0_out
+
+load_f
+f_out
+
+reg_in
+reg_out
+
+dc_in
+
+alu_in
+alu_out
+
+load_ir0
+load_ir1
+load_ir2
+
+ir1_out
+ir2_out
+
+load_x
+load_y
+
+sph_write
+spl_write
+pch_write
+pcl_write
+
+sp_inc
+sp_dec
+pc_inc
+
+load_pc_ij
+
+i_in
+j_in
+
+SPECIAL:
+	stop_if_zero
+	This goes to the next instruction and stops microcode
+	execution if whatever is on the main bus is equal to zero.
+	Used for JNZ.
+
+INPUT:
+need_ir1
+need_ir2
+ir0
+clock
+
+arithmetic things:
+if const:
+	r0_out, reg_out, load_x
+	ir1_out, load_y
+	alu_out, reg_in
+	f_out, load_f
+else:
+	r0_out, reg_out, load_x
+	r1_out, reg_out, load_y
+	alu_out, reg_in
+	f_out, load_f, reg_in
+
+push:
+if const:
+	sp_inc
+	addr_sp, mem_in, ir1_out
+else:
+	sp_inc
+	addr_sp, mem_in, r0_out, reg_out
+
+pop:
+	addr_sp, mem_out, reg_in
+	sp_dec
+
+jnz:
+if const:
+	ir1_out, stop_if_zero
+	load_pc_ij
+else:
+	r0_out, reg_out, stop_if_zero
+	load_pc_ij
+
+mw:
+if const:
+	ir1_out, reg_in
+else:
+	r1_out, reg_in
+
+lw:
+if const:
+	addr_imm, mem_out, reg_in
+else:
+	addr_ij, mem_out, reg_in
+
+sw:
+if const:
+	addr_imm, mem_in, r0_out, reg_out
+else:
+	addr_ij, mem_in, r0_out, reg_out
+
+lda:
+	ir1_out, j_in, reg_in
+	ir2_out, i_in, reg_in

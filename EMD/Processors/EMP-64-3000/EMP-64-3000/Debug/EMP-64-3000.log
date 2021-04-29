@@ -1,4 +1,3 @@
 ﻿  cpu.cpp
-  main.cpp
-  Generating Code...
-  EMP-64-3000.vcxproj -> C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\EMP-64-3000\Debug\EMP-64-3000.exe
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Processors\EMP-64-3000\EMP-64-3000\cpu.cpp(32,6): warning C4804: '>=': unsafe use of type 'bool' in operation
+  EMP-64-3000.vcxproj -> C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Processors\EMP-64-3000\Debug\EMP-64-3000.exe

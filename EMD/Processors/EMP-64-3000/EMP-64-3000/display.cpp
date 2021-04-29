@@ -1,92 +1,73 @@
 #include "display.h"
+#include "ram.h"
+#include "gpu.h"
+#include <thread>
 
 bool initkeyup = true;
+extern RAM ram;
+extern int WindowWidth;
+extern int WindowHeight;
+int queue[10];
 
 void EventHandler(UINT eventid, int info) {
+    char buffer[15];
 	switch (eventid) {
-    case WM_LBUTTONDOWN:
-        OutputDebugStringW(L"LButtonDown\n");
-        break;
-    case WM_LBUTTONUP:
-        OutputDebugStringW(L"LButtonUp\n");
-        break;
-    case WM_MBUTTONDOWN:
-        OutputDebugStringW(L"MButtonDown\n");
-        break;
-    case WM_MBUTTONUP:
-        OutputDebugStringW(L"MButtonUp\n");
-        break;
-    case WM_RBUTTONDOWN:
-        OutputDebugStringW(L"RButtonDown\n");
-        break;
-    case WM_RBUTTONUP:
-        OutputDebugStringW(L"RButtonUp\n");
-        break;
-    case WM_KEYDOWN:
-        OutputDebugStringW(L"KeyDown: " + (wchar_t)info);
-        break;
-    case WM_KEYUP:
-        if (initkeyup) {
-            initkeyup = false;
+        // Removed mouse "driver" for simplicity
+        case WM_KEYDOWN:
+            _itoa_s(info, buffer, 10);
+            OutputDebugStringW(L"\nKeyDown: " + (wchar_t)buffer);
+            break;
+        case WM_KEYUP:
+            if (initkeyup) {
+                initkeyup = false;
+                return;
+            }
+            _itoa_s(info, buffer, 10);
+            OutputDebugStringW(L"\nKeyUp: " + (wchar_t)buffer);
+            break;
+        case WM_MOUSEWHEEL:
+            if (info < 0) OutputDebugStringW(L"MouseWheelDown\n");
+            else if (info > 0) OutputDebugStringW(L"MouseWheelUp\n");
+            break;
+        default:
             return;
-        }
-        OutputDebugStringW(L"KeyUp: " + (wchar_t)info);
-        break;
-    case WM_MOUSEWHEEL:
-        if (info < 0) OutputDebugStringW(L"MouseWheelDown\n");
-        else if (info > 0) OutputDebugStringW(L"MouseWheelUp\n");
-        break;
-    default:
-        return;
 	}
 }
 
-void EnterFullscreen(HWND hwnd) {
-    DWord dwStyle = ::GetWindowLong(hwnd, GWL_STYLE);
-    DWord dwRemove = WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX;
-    DWord dwNewStyle = dwStyle & ~dwRemove;
-    ::SetWindowLong(hwnd, GWL_STYLE, dwNewStyle);
-    ::SetWindowPos(hwnd, NULL, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE | SWP_FRAMECHANGED);
-    HDC hdc = ::GetWindowDC(NULL);
-    ::SetWindowPos(hwnd, NULL, 0, 0, ::GetDeviceCaps(hdc, HORZRES), ::GetDeviceCaps(hdc, VERTRES), SWP_FRAMECHANGED);
-}
-
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
-    EventHandler(msg, (int)wParam);
+    std::thread event_thread(EventHandler, msg, (int)wParam);
     PAINTSTRUCT ps;
     HDC hdc;
-    int err;
+    HDC hdesktop = GetDC(0);
+    HDC memdc = CreateCompatibleDC(hdesktop);
+    HBITMAP hbitmap = CreateCompatibleBitmap(hdesktop, WindowWidth, WindowHeight);
+    SelectObject(memdc, hbitmap);
 
     switch (msg) {
-    case WM_CLOSE:
-        DestroyWindow(hwnd);
-        break;
-    case WM_DESTROY:
-        PostQuitMessage(0);
-        break;
-    case WM_PAINT:
-        hdc = BeginPaint(hwnd, &ps);
-        err = PaintWindow(hdc, hwnd);
-        EndPaint(hwnd, &ps);
-
-        if (err) {
-            return err;
-        }
-
-        break;
-    default:
-        return DefWindowProc(hwnd, msg, wParam, lParam);
+        case WM_CLOSE:
+            DestroyWindow(hwnd);
+            break;
+        case WM_DESTROY:
+            PostQuitMessage(0);
+            break;
+        case WM_PAINT:
+            hdc = BeginPaint(hwnd, &ps);
+            PaintWindow(memdc);
+            BitBlt(hdc, 0, 0, WindowWidth, WindowHeight, memdc, 0, 0, SRCCOPY);
+            EndPaint(hwnd, &ps);
+            break;
+        default:
+            event_thread.join();
+            return DefWindowProc(hwnd, msg, wParam, lParam);
     }
 
+    event_thread.join();
     return 0;
 }
 
-int InitilizeWindow(HINSTANCE hInstance, int nCmdShow, LPCWSTR windowTitle, LPCWSTR className) {
+int InitilizeWindow(HINSTANCE hInstance, int nCmdShow, LPCWSTR windowTitle, LPCWSTR className, HWND* hwnd_) {
     WNDCLASSEX wc;
     HWND hwnd;
-
-    int WindowWidth = 1920;
-    int WindowHeight = 1080;
 
     // Window Properties
     wc.cbSize = sizeof(WNDCLASSEX);
@@ -97,8 +78,7 @@ int InitilizeWindow(HINSTANCE hInstance, int nCmdShow, LPCWSTR windowTitle, LPCW
     wc.hInstance = hInstance;
     wc.hIcon = LoadIcon(NULL, IDI_APPLICATION);
     wc.hCursor = LoadCursor(NULL, IDC_ARROW);
-    //wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
-    wc.hbrBackground = CreateSolidBrush(RGB(0, 0, 0));
+    wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
     wc.lpszMenuName = NULL;
     wc.lpszClassName = (LPCWSTR)className;
     wc.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
@@ -125,6 +105,7 @@ int InitilizeWindow(HINSTANCE hInstance, int nCmdShow, LPCWSTR windowTitle, LPCW
 
     ShowWindow(hwnd, nCmdShow);
     UpdateWindow(hwnd);
+    hwnd_ = &hwnd;
 
     return 0;
 }

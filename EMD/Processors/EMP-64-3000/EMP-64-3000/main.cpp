@@ -4,6 +4,7 @@
 #include "ram.h"
 #include "cpu.h"
 #include "display.h"
+#include "gpu.h"
 #include <thread>
 
 using namespace emu;
@@ -11,6 +12,8 @@ using namespace emu;
 const char g_szClassName[] = "myWindowClass";
 RAM ram;
 CPU cpu;
+int WindowWidth = 640;
+int WindowHeight = 480;
 
 void StartCPU() {
 	cpu.Boot();
@@ -19,7 +22,7 @@ void StartCPU() {
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 	char bootfile[20];
 
-	ram.data[0] = 1;
+	ram.Reset();
 	cpu.Reset();
 
 	LPWSTR* szArgList;
@@ -34,8 +37,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	}
 
 	MSG Msg;
+	HWND hwnd;
 	
-	error = InitilizeWindow(hInstance, nCmdShow, L"EMU", (LPCWSTR)g_szClassName);
+	error = InitilizeWindow(hInstance, nCmdShow, L"EMU", (LPCWSTR)g_szClassName, &hwnd);
 
 	if (error) {
 		return error;
@@ -48,9 +52,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		DispatchMessage(&Msg);
 	}
 
-	char buffer[33];
-	_itoa_s(cpu.Crash(), buffer, 33, 10);
-	OutputDebugStringW("RIP: " + buffer);
-	
+	cpu.Crash();
+	cpu_thread.join();
+
 	return Msg.wParam;
 }

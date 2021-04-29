@@ -33,7 +33,7 @@
     <ClCompile Include="cpu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="codes.cpp">
+    <ClCompile Include="UNUSED.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,7 +50,7 @@
     <ClInclude Include="cpu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="rflags.h">
+    <ClInclude Include="flags.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="codes.h">

@@ -1,0 +1,16 @@
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Asm.0.1\asm\obj\Debug\net5.0\asm.csprojAssemblyReference.cache
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Asm.0.1\asm\obj\Debug\net5.0\asm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Asm.0.1\asm\obj\Debug\net5.0\asm.AssemblyInfoInputs.cache
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Asm.0.1\asm\obj\Debug\net5.0\asm.AssemblyInfo.cs
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Asm.0.1\asm\obj\Debug\net5.0\asm.csproj.CoreCompileInputs.cache
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Asm.0.1\asm\bin\Debug\net5.0\asm.exe
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Asm.0.1\asm\bin\Debug\net5.0\asm.deps.json
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Asm.0.1\asm\bin\Debug\net5.0\asm.runtimeconfig.json
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Asm.0.1\asm\bin\Debug\net5.0\asm.runtimeconfig.dev.json
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Asm.0.1\asm\bin\Debug\net5.0\asm.dll
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Asm.0.1\asm\bin\Debug\net5.0\ref\asm.dll
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Asm.0.1\asm\bin\Debug\net5.0\asm.pdb
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Asm.0.1\asm\obj\Debug\net5.0\asm.dll
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Asm.0.1\asm\obj\Debug\net5.0\ref\asm.dll
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Asm.0.1\asm\obj\Debug\net5.0\asm.pdb
+C:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Asm.0.1\asm\obj\Debug\net5.0\asm.genruntimeconfig.cache

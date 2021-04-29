@@ -1,7 +1,6 @@
 #pragma once
-
 #include "emu.h"
-#include "ram.h"
+#include <math.h>
 
 using namespace emu;
-int PaintWindow(HDC hdc, HWND hwnd);
+void PaintWindow(HDC hdc);

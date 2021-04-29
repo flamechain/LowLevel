@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": ".",
+			"file_exclude_patterns": ["*.sublime-project"],
+			"folder_exclude_patterns": ["nimcache"]
+		}
+	],
+	"build_systems": [
+		{
+			"name": "Build",
+			"shell_cmd": "cd ${project_path}\\tools & make",
+			"selector": ["source.c"]
+		}
+	]
+}

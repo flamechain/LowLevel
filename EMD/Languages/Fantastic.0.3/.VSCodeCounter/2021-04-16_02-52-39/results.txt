@@ -1,0 +1,37 @@
+Date : 2021-04-16 02:52:39
+Directory : c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis
+Total : 13 files,  330 codes, 41 comments, 84 blanks, all 455 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C#       |         13 |        330 |         41 |         84 |        455 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                     | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                        |         13 |        330 |         41 |         84 |        455 |
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                                 | language | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\BinaryExpression.cs        | C#       |         19 |          3 |          4 |         26 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\Evaluator.cs               | C#       |         40 |          3 |          8 |         51 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\ExpressionSyntax.cs        | C#       |          3 |          3 |          2 |          8 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\Lexer.cs                   | C#       |         59 |          3 |         17 |         79 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\LiteralExpression.cs       | C#       |         13 |          3 |          4 |         20 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\ParenthesizedExpression.cs | C#       |         19 |          3 |          4 |         26 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\Parser.cs                  | C#       |         74 |          3 |         23 |        100 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\SyntaxFacts.cs             | C#       |         25 |          3 |          6 |         34 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\SyntaxNode.cs              | C#       |          7 |          3 |          2 |         12 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\SyntaxToken.cs             | C#       |         19 |          3 |          4 |         26 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\SyntaxTree.cs              | C#       |         18 |          3 |          4 |         25 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\SyntaxType.cs              | C#       |         18 |          5 |          2 |         25 |
+| c:\Users\rwc\OneDrive\Programming\GitHubLowLevel\EMD\Languages\Fantastic.0.3\fan\CodeAnalysis\UnaryExpression.cs         | C#       |         16 |          3 |          4 |         23 |
+| Total                                                                                                                    |          |        330 |         41 |         84 |        455 |
++--------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

@@ -1,0 +1,32 @@
+{
+    "tasks": [
+      {
+        "type": "shell",
+        "label": "gcc.exe build active file",
+        "command": "C:\\Program Files\\CodeBlocks\\MinGW\\bin\\gcc.exe",
+        "args": [
+          "-g",
+          "C:/Users/rwc/OneDrive/Programming/GitHubLowLevel/EMD/Processors/MMP-64-1000/find.c",
+          "-o",
+          "C:/Users/rwc/OneDrive/Programming/GitHubLowLevel/EMD/Processors/MMP-64-1000/find.exe"
+        ],
+        "options": {
+          "cwd": "C:\\Program Files\\CodeBlocks\\MinGW\\bin"
+        }
+      },
+      {
+        "type": "shell",
+        "label": "gcc build & run active file",
+        "command": "C:\\Program Files\\CodeBlocks\\MinGW\\bin\\gcc.exe",
+        "args": [
+          "C:/Users/rwc/OneDrive/Programming/GitHubLowLevel/EMD/Processors/MMP-64-1000/find.c",
+          "-o",
+          "C:/Users/rwc/OneDrive/Programming/GitHubLowLevel/EMD/Processors/MMP-64-1000/find.exe"
+        ],
+        "options": {
+          "cwd": "C:\\Program Files\\CodeBlocks\\MinGW\\bin"
+        }
+      }
+    ],
+    "version": "2.0.0"
+  }

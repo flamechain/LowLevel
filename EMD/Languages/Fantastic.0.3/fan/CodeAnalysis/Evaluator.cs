@@ -1,48 +1,52 @@
 using System;
+using Fantastic.CodeAnalysis.Binding;
 
 namespace Fantastic.CodeAnalysis {
     /// <summary>
     /// Evaulates parsed SyntaxTree
     /// </summary>
     internal sealed class Evaluator {
-        private readonly ExpressionSyntax Root;
+        private readonly BoundExpression Root;
 
-        public Evaluator(ExpressionSyntax root) {
+        public Evaluator(BoundExpression root) {
             Root = root;
         }
 
-        public int Evaluate() {
+        public object Evaluate() {
             return EvaluateExpression(Root);
         }
 
-        private int EvaluateExpression(ExpressionSyntax node) {
-            if (node is LiteralExpression n)
-                return (int)n.LiteralToken.Value;
-            else if (node is UnaryExpression u) {
-                int operand = EvaluateExpression(u.Operand);
+        private object EvaluateExpression(BoundExpression node) {
+            if (node is BoundLiteralExpression n)
+                return n.Value;
+            else if (node is BoundUnaryExpression u) {
+                object operand = EvaluateExpression(u.Operand);
 
-                if (u.Operator.Type == SyntaxType.PlusToken)
-                    return operand;
-                else if (u.Operator.Type == SyntaxType.MinusToken)
-                    return -operand;
-                else
-                    throw new Exception($"Unexpected unary operator {u.Operator.Type}");
-            } else if (node is BinaryExpression b) {
-                int left = EvaluateExpression(b.Left);
-                int right = EvaluateExpression(b.Right);
+                switch(u.OperatorType) {
+                    case BoundUnaryOperator.Identity:
+                        return (int)operand;
+                    case BoundUnaryOperator.Negation:
+                        return -(int)operand;
+                    default:
+                        throw new Exception($"Unexpected unary operator {u.OperatorType}");
+                }
+            } else if (node is BoundBinaryExpression b) {
+                int left = (int)EvaluateExpression(b.Left);
+                int right = (int)EvaluateExpression(b.Right);
 
-                if (b.Operator.Type == SyntaxType.PlusToken)
-                    return left + right;
-                else if (b.Operator.Type == SyntaxType.MinusToken)
-                    return left - right;
-                else if (b.Operator.Type == SyntaxType.StarToken)
-                    return left * right;
-                else if (b.Operator.Type == SyntaxType.ForeSlashToken)
-                    return left / right;
-                else
-                    throw new Exception($"Unexpected binary operator {b.Operator.Type}");
-            } else if (node is ParenthesizedExpression p)
-                return EvaluateExpression(p.Expression);
+                switch(b.OperatorType) {
+                    case BoundBinaryOperator.Addition:
+                        return left + right;
+                    case BoundBinaryOperator.Subtraction:
+                        return left - right;
+                    case BoundBinaryOperator.Multiplication:
+                        return left * right;
+                    case BoundBinaryOperator.Division:
+                        return left / right;
+                    default:
+                        throw new Exception($"Unexpected binary operator {b.OperatorType}");
+                }
+            }
 
             throw new Exception($"Unexpected binary operator {node.Type}");
         }

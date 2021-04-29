@@ -139,13 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="codes.cpp" />
     <ClCompile Include="cpu.cpp" />
     <ClCompile Include="display.cpp" />
     <ClCompile Include="emu.h" />
     <ClCompile Include="gpu.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ram.cpp" />
+    <ClCompile Include="UNUSED.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="codes.h" />
@@ -153,7 +153,7 @@
     <ClInclude Include="display.h" />
     <ClInclude Include="gpu.h" />
     <ClInclude Include="ram.h" />
-    <ClInclude Include="rflags.h" />
+    <ClInclude Include="flags.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="boot.bin" />

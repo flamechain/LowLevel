@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Fantastic.CodeAnalysis;
+using Fantastic.CodeAnalysis.Syntax;
+using Fantastic.CodeAnalysis.Binding;
 
 namespace Fantastic {
     internal static class Program {
@@ -30,6 +31,9 @@ namespace Fantastic {
                 }
 
                 SyntaxTree syntaxTree = SyntaxTree.Parse(line);
+                Binder binder = new Binder();
+                BoundExpression boundExpression = binder.BindExpression(syntaxTree.Root);
+                string[] diagnostics = syntaxTree.Diagnostics.Concat(binder._diagnostics).ToArray();
 
                 if (showTree) {
                     Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -37,14 +41,14 @@ namespace Fantastic {
                     Console.ResetColor();
                 }
 
-                if (!syntaxTree.Diagnostics.Any()) {
-                    Evaluator e = new Evaluator(syntaxTree.Root);
-                    int result = e.Evaluate();
+                if (!diagnostics.Any()) {
+                    Evaluator e = new Evaluator(boundExpression);
+                    object result = e.Evaluate();
                     Console.WriteLine(result);
                 } else {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
 
-                    foreach (string diagnostic in syntaxTree.Diagnostics)
+                    foreach (string diagnostic in diagnostics)
                         Console.WriteLine(diagnostic);
 
                     Console.ResetColor();
